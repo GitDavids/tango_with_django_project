@@ -127,8 +127,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# Added by Davids Zakrevskis
-# image files
-*.jpg
-*.jpeg
