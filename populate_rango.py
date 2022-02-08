@@ -1,4 +1,5 @@
 import os
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE',
                       'tango_with_django_project.settings')
 
@@ -14,25 +15,25 @@ def populate():
     # through each data structure, and add the data to our models.
 
     python_pages = [
-        {'title': 'Official Python Tutorial',
+        {'title': 'Official Python Tutorial', 'views': 10,
         'url':'http://docs.python.org/3/tutorial/'},
-        {'title':'How to Think like a Computer Scientist',
+        {'title':'How to Think like a Computer Scientist', 'views': 11,
         'url':'http://www.greenteapress.com/thinkpython/'},
-        {'title':'Learn Python in 10 Minutes',
+        {'title':'Learn Python in 10 Minutes', 'views': 12,
         'url':'http://www.korokithakis.net/tutorials/python/'} ]
 
     django_pages = [
-        {'title':'Official Django Tutorial',
+        {'title':'Official Django Tutorial', 'views': 5,
         'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
-        {'title':'Django Rocks',
+        {'title':'Django Rocks', 'views': 6,
         'url':'http://www.djangorocks.com/'},
-        {'title':'How to Tango with Django',
+        {'title':'How to Tango with Django', 'views': 7,
         'url':'http://www.tangowithdjango.com/'} ]
 
     other_pages = [
-        {'title':'Bottle',
+        {'title':'Bottle', 'views': 3, 
         'url':'http://bottlepy.org/docs/dev/'},
-        {'title':'Flask',
+        {'title':'Flask', 'views': 2,
         'url':'http://flask.pocoo.org'} ]
 
     cats = {'Python': {'pages': python_pages, 'views': 128, 'likes': 64},
@@ -45,9 +46,9 @@ def populate():
     # The code below goes through the cats dictionary, then adds each category,
     # and then adds all the associated pages for that category.
     for cat, cat_data in cats.items():
-        c = add_cat(cat, views = cat_data['views'], likes=cat_data['likes'])
+        c = add_cat(cat, views=cat_data['views'], likes=cat_data['likes'])
         for p in cat_data['pages']:
-            add_page(c, p['title'], p['url'])
+            add_page(c, p['title'], p['url'], views=p['views'])
 
     # Print out the categories we have added.
     for c in Category.objects.all():
