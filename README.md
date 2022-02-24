@@ -1,1 +1,1 @@
-# game_of_life_project
+"# Game-of-Life-Group-Project" 
